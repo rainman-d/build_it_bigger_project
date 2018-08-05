@@ -10,3 +10,4 @@ gen/
 /build
 /captures
 .externalNativeBuild
+/backend/build/**

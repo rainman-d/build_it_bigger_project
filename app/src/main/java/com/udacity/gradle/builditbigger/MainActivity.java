@@ -12,7 +12,7 @@ import com.drainey.jokelib.JokeUtils;
 import com.drainey.lib.JokeActivity;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EndpointsAsyncTask.EndpointTaskHandler {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +49,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchJokeActivity(View view){
-        String joke = this.getLibraryJoke();
+        new EndpointsAsyncTask(this).execute();
+    }
+
+    private void startJokeActivity(String joke){
         Intent intent = new Intent(this, JokeActivity.class);
+        intent.putExtra(Intent.EXTRA_TEXT, joke);
         startActivity(intent);
     }
 
     private String getLibraryJoke(){
         return JokeUtils.getJoke();
+    }
+
+    public void handleTaskOutput(String joke){
+        if(joke != null && !joke.isEmpty()){
+            startJokeActivity(joke);
+        }
     }
 
 }
