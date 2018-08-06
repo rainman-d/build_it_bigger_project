@@ -12,6 +12,10 @@ import java.io.IOException;
 
 /**
  * Created by rainman-d on 8/5/18.
+ *
+ * Code adopted from template located at:
+ * https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/77e9910911d5412e5efede5fa681ec105a0f02ad/HelloEndpoints#2-connecting-your-android-app-to-the-backend
+ * Template code has been modified to allow it to be used by any Activity that implements EndpointTaskHandler interface.
  */
 
 public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
