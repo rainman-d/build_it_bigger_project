@@ -22,9 +22,11 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
     private EndpointTaskHandler mTaskOutputHandler;
 
-    interface EndpointTaskHandler{
+    public interface EndpointTaskHandler{
         void handleTaskOutput(String output);
     }
+
+    public EndpointsAsyncTask(){}
 
     public EndpointsAsyncTask(EndpointTaskHandler handler){
         this.mTaskOutputHandler = handler;
@@ -60,5 +62,10 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         mTaskOutputHandler.handleTaskOutput(result);
+    }
+
+    public EndpointsAsyncTask setListener(EndpointTaskHandler listener){
+        this.mTaskOutputHandler = listener;
+        return this;
     }
 }
