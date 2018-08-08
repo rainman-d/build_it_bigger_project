@@ -24,6 +24,7 @@
         android:text="@string/button_text" />
     <Button
         android:layout_below="@+id/tell_joke_btn"
+        android:id="@+id/launch_joke_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="launchJokeActivity"

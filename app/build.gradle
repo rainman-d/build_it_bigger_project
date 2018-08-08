@@ -53,6 +53,7 @@ dependencies {
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
     implementation project(':jokeLib')
     implementation project(':lib')
+    implementation 'com.android.support.test.espresso:espresso-idling-resource:2.2.2'
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
